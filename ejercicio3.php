@@ -108,6 +108,10 @@ class Persona {
             echo $this -> nombre . " " . $this -> apellido . " con DNI " . $this -> dni . " de sexo " . $this -> sexo . " pesa " . $this -> peso . " kg, mide " . $this -> altura . " cm y nació el " . $this -> fechaNac;
 
         }
+
+        function __toString(){
+            return $this -> nombre . " " . $this -> apellido . " con DNI " . $this -> dni . " de sexo " . $this -> sexo . " pesa " . $this -> peso . " kg, mide " . $this -> altura . " cm y nació el " . $this -> fechaNac;
+        }
         
     }
 
@@ -148,21 +152,21 @@ class Persona {
             echo parent::mostrarPersona() . "; trabaja en " . $this -> empresaTrabaja;
 
         }
+        
+        function __toString(){
+            return parent::__toString() . "; trabaja en " . $this -> empresaTrabaja;
+        }
 
     }
 
     $p1 = new Persona("José Pablo", "Machuca González", "77937635L", "Hombre", "66.6", "1.63", "01/09/1996");
 
-    $p1 -> mostrarPersona();
+    echo $p1;
 
     echo "<hr>";
 
     $t1 = new Trabajador("José Pablo", "Machuca González", "77937635L", "Hombre", "66.6", "1.63", "01/09/1996", "Deloitte");
 
-    $t1 -> mostrarPersona();
-
-    echo "<hr>";
-
-    $t1 -> mostrarTrabajador();
+    echo $t1;
 
 ?>
